@@ -52,4 +52,16 @@
         <item name="android:textSize">@dimen/text_size_large</item>
     </style>
 
+    <style name="GridView" />
+
+    <style name="GridView.TextViewHeader">
+        <item name="android:padding">@dimen/margin_normal</item>
+        <item name="android:textColor">@color/colorTextViewHeaderDialog</item>
+        <item name="android:textSize">@dimen/text_size_normal</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:ellipsize">marquee</item>
+        <item name="android:gravity">center</item>
+        <item name="android:marqueeRepeatLimit">marquee_forever</item>
+    </style>
+
 </resources>

@@ -14,12 +14,11 @@
         android:layout_height="@dimen/icon_size_row"
         android:layout_gravity="center" />
 
-    <shipper.com.ads.widget.TextViewPlus
+    <shipper.com.ads.widget.TextViewTitle
         android:id="@+id/tvHeader"
-        style="@style/Dialog.TextViewHeader"
+        style="@style/GridView.TextViewHeader"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:gravity="center" />
+        android:layout_gravity="center" />
 
 </LinearLayout>

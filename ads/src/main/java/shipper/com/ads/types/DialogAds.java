@@ -60,10 +60,13 @@ public class DialogAds extends Dialog implements View.OnClickListener {
 
     }
 
-    @Override
-    public void show() {
+    public void show(VipAdsResponse.AppAds appAds, VipAdsResponse.AppAds.LanguageAds languageAds) {
         super.show();
-        getAds();
+        this.appAds = appAds;
+        this.languageAds = languageAds;
+        BitmapUtils.setImageWithUILoader(languageAds.icon, icon, R.mipmap.ic_launcher);
+        tvHeader.setText(languageAds.name);
+        tvDes.setText(languageAds.fullDescription);
     }
 
     @Override
@@ -75,43 +78,6 @@ public class DialogAds extends Dialog implements View.OnClickListener {
         } else if (v.getId() == R.id.container) {
             clickAds();
         }
-    }
-
-    private void getAds() {
-        GetAdsSender sender = new GetAdsSender();
-        sender.country = Utils.getLocaleCurrently(mAct.getApplicationContext());
-        sender.device_id = Utils.getDeviceId(mAct.getApplicationContext());
-        sender.timestamp = Utils.getTimeStamp();
-        try {
-            sender.token = Utils.hashMac(sender.getParamsString());
-        } catch (SignatureException e) {
-            e.printStackTrace();
-        }
-
-        RequestApi requestApi = new RequestApi();
-        requestApi.getAds(sender, new Callback<GetAdsResponse>() {
-            @Override
-            public void success(GetAdsResponse getAdsResponse, Response response) {
-                if (getAdsResponse != null && 0 == getAdsResponse.code &&
-                        getAdsResponse.vipAdsList != null &&
-                        getAdsResponse.vipAdsList.size() > 0) {
-                    VipAdsResponse item = getAdsResponse.vipAdsList.get(Utils.randInt(0, getAdsResponse.vipAdsList.size()));
-                    appAds = item.app;
-                    int index = item.app.languageAdsList.indexOf(item.app.defaultLanguage);
-                    if (index >= 0) {
-                        languageAds = item.app.languageAdsList.get(index);
-                        BitmapUtils.setImageWithUILoader(languageAds.icon, icon, R.mipmap.ic_launcher);
-                        tvHeader.setText(languageAds.name);
-                        tvDes.setText(languageAds.fullDescription);
-                    }
-                }
-            }
-
-            @Override
-            public void failure(RetrofitError error) {
-
-            }
-        });
     }
 
     private void installApp() {

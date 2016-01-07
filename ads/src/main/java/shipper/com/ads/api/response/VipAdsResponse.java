@@ -11,7 +11,7 @@ public class VipAdsResponse {
     @SerializedName("app")
     public AppAds app;
 
-    public class AppAds {
+    public static class AppAds {
 
         @SerializedName("package")
         public String packageApp;
@@ -31,7 +31,7 @@ public class VipAdsResponse {
         @SerializedName("languages")
         public ArrayList<LanguageAds> languageAdsList;
 
-        public class LanguageAds {
+        public static class LanguageAds {
             @SerializedName("name")
             public String name;
 
@@ -49,6 +49,10 @@ public class VipAdsResponse {
 
             @SerializedName("language")
             public String language = "";
+
+            public LanguageAds(String language) {
+                this.language = language;
+            }
 
             @Override
             public boolean equals(Object o) {

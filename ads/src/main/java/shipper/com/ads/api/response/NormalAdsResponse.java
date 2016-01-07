@@ -27,7 +27,7 @@ public class NormalAdsResponse {
     @SerializedName("languages")
     public ArrayList<LanguageAds> languageAdsList;
 
-    public class LanguageAds {
+    public static class LanguageAds {
         @SerializedName("name")
         public String name;
 
@@ -46,6 +46,13 @@ public class NormalAdsResponse {
         @SerializedName("language")
         public String language = "";
 
+        public LanguageAds(String language) {
+            this.language = language;
+        }
 
+        @Override
+        public boolean equals(Object o) {
+            return language.equals(((LanguageAds) o).language);
+        }
     }
 }

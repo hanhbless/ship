@@ -84,7 +84,8 @@ public class Utils {
     }
 
     public static String getLocaleCurrently(Context context) {
-        return context.getResources().getConfiguration().locale.getCountry();
+        return "vn"; // ^.^ Test
+        //return context.getResources().getConfiguration().locale.getCountry().toLowerCase();
     }
 
     public static String getTimeStamp() {

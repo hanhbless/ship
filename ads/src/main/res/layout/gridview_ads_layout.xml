@@ -13,5 +13,7 @@
         android:numColumns="3"
         android:scrollbars="none"
         android:stretchMode="columnWidth"
+        android:layout_marginTop="@dimen/margin_gigatic"
+        android:layout_marginBottom="@dimen/margin_gigatic"
         android:verticalSpacing="0dp" />
 </LinearLayout>

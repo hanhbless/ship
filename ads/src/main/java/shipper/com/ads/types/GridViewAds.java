@@ -3,6 +3,7 @@ package shipper.com.ads.types;
 import android.app.Activity;
 import android.content.Context;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -91,7 +92,7 @@ public class GridViewAds extends FrameLayout {
 
             @Override
             public void failure(RetrofitError error) {
-
+                Log.i("TAG", error.toString());
             }
         });
     }
@@ -126,7 +127,7 @@ public class GridViewAds extends FrameLayout {
             if (position >= 0 && position < getCount()) {
                 final NormalAdsResponse item = adsList.get(position);
                 NormalAdsResponse.LanguageAds languageAds = item.languageAdsList
-                        .get(item.languageAdsList.indexOf(item.defaultLanguage));
+                        .get(item.languageAdsList.indexOf(new NormalAdsResponse.LanguageAds(item.defaultLanguage)));
                 BitmapUtils.setImageWithUILoader(languageAds.icon, viewHolder.icon, android.R.color.transparent);
                 viewHolder.tv.setText(languageAds.name);
 
@@ -175,7 +176,7 @@ public class GridViewAds extends FrameLayout {
 
                 @Override
                 public void failure(RetrofitError error) {
-
+                    Log.i("TAG", error.toString());
                 }
             });
         }

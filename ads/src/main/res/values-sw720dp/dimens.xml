@@ -47,7 +47,7 @@
     <dimen name="icon_size_gigaticest4">540dp</dimen>
     <dimen name="icon_size_gigaticest5">210dp</dimen>
 
-    <dimen name="icon_size_row">150dp</dimen>
+    <dimen name="icon_size_row">120dp</dimen>
 
     <!-- Item Height -->
     <dimen name="item_height_normal">36dp</dimen>

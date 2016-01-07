@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <shipper.com.ads.widget.TextViewPlus
+        android:id="@+id/tvHeader"
+        style="@style/Item.TextViewHeader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/icon_size_gigatic"
+        android:text="Home Screen" />
+
+    <shipper.com.ads.widget.ButtonPlus
+        android:id="@+id/btn_open_child"
+        style="@style/Item.Button"
+        android:layout_below="@+id/tvHeader"
+        android:layout_centerHorizontal="true"
+        android:text="Open Child Screen" />
+
+</RelativeLayout>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <bool name="isTablet">true</bool>
+
+    <string name="eula_for_app">EULA_for_app_large.html</string>
+    <string name="eula_for_share">EULA_Share_large.html</string>
+
+</resources>

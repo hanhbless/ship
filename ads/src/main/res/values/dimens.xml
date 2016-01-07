@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <!-- Default screen margins  per the Android Design guidelines. -->
+  <dimen name="activity_horizontal_margin">9.6dp</dimen>
+  <dimen name="activity_vertical_margin">9.6dp</dimen>
+  <!-- conrner radius -->
+  <dimen name="radius_smaller">0.6dp</dimen>
+  <dimen name="radius_normal">1.8dp</dimen>
+  <dimen name="radius_large">3.0dp</dimen>
+  <dimen name="radius_huge">4.2dp</dimen>
+  <dimen name="radius_gigatic">6.0dp</dimen>
+  <dimen name="radius_gigaticer">9.0dp</dimen>
+  <dimen name="radius_gigaticest">12.0dp</dimen>
+  <!-- Margin -->
+  <dimen name="margin_smaller">1.8dp</dimen>
+  <dimen name="margin_normal">2.8dp</dimen>
+  <dimen name="margin_large">4.2dp</dimen>
+  <dimen name="margin_huge">6.0dp</dimen>
+  <dimen name="margin_gigatic">7.4dp</dimen>
+  <dimen name="margin_gigaticer">12.0dp</dimen>
+  <dimen name="margin_gigaticest">16.4dp</dimen>
+  <dimen name="margin_gigaticest2">30.0dp</dimen>
+  <dimen name="margin_gigaticest3">32.0dp</dimen>
+  <!-- Size Text -->
+  <dimen name="text_size_tiny">6.0sp</dimen>
+  <dimen name="text_size_smaller">8.4sp</dimen>
+  <dimen name="text_size_smaller2">9.0sp</dimen>
+  <dimen name="text_size_small">9.6sp</dimen>
+  <dimen name="text_size_normal">10.8sp</dimen>
+  <dimen name="text_size_large">12.6sp</dimen>
+  <dimen name="text_size_huge">13.4sp</dimen>
+  <dimen name="text_size_gigatic">18.0sp</dimen>
+  <!-- Icon Size -->
+  <dimen name="icon_size_small">12.0dp</dimen>
+  <dimen name="icon_size_smaller">9.0dp</dimen>
+  <dimen name="icon_size_normal">15.0dp</dimen>
+  <dimen name="icon_size_large">18.0dp</dimen>
+  <dimen name="icon_size_huge">19.2dp</dimen>
+  <dimen name="icon_size_huger">27.0dp</dimen>
+  <dimen name="icon_size_gigatic">27.0dp</dimen>
+  <dimen name="icon_size_gigaticer">30.0dp</dimen>
+  <dimen name="icon_size_avartar">31.8dp</dimen>
+  <dimen name="icon_size_gigaticest">36.0dp</dimen>
+  <dimen name="icon_size_gigaticest2">120.0dp</dimen>
+  <dimen name="icon_size_gigaticest3">144.0dp</dimen>
+  <dimen name="icon_size_gigaticest4">200.0dp</dimen>
+  <dimen name="icon_size_gigaticest5">56.0dp</dimen>
+  <!-- Item Height -->
+  <dimen name="item_height_normal">12.0dp</dimen>
+  <dimen name="item_height_large">18.0dp</dimen>
+  <dimen name="item_height_huge">24.0dp</dimen>
+  <dimen name="item_height_gigatic">30.0dp</dimen>
+  <dimen name="item_height_gigaticer">36.0dp</dimen>
+  <dimen name="edit_note_height">90.0dp</dimen>
+
+</resources>

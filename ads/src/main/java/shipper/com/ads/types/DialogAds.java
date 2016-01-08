@@ -3,6 +3,7 @@ package shipper.com.ads.types;
 import android.app.Activity;
 import android.app.Dialog;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -47,6 +48,10 @@ public class DialogAds extends Dialog implements View.OnClickListener {
         setContentView(R.layout.dialog_ads_layout);
         setCancelable(false);
 
+        initView();
+    }
+
+    private void initView() {
         container = findViewById(R.id.container);
         icon = (ImageView) findViewById(R.id.icon);
         iconClose = (ImageView) findViewById(R.id.icon_close);
@@ -57,16 +62,10 @@ public class DialogAds extends Dialog implements View.OnClickListener {
         container.setOnClickListener(this);
         iconClose.setOnClickListener(this);
         btnGetApp.setOnClickListener(this);
-
     }
 
-    public void show(VipAdsResponse.AppAds appAds, VipAdsResponse.AppAds.LanguageAds languageAds) {
-        super.show();
-        this.appAds = appAds;
-        this.languageAds = languageAds;
-        BitmapUtils.setImageWithUILoader(languageAds.icon, icon, R.mipmap.ic_launcher);
-        tvHeader.setText(languageAds.name);
-        tvDes.setText(languageAds.fullDescription);
+    public void checkShow() {
+        getAds();
     }
 
     @Override
@@ -78,6 +77,47 @@ public class DialogAds extends Dialog implements View.OnClickListener {
         } else if (v.getId() == R.id.container) {
             clickAds();
         }
+    }
+
+    private void getAds() {
+        GetAdsSender sender = new GetAdsSender();
+        sender.country = Utils.getLocaleCurrently(mAct.getApplicationContext());
+        sender.device_id = Utils.getDeviceId(mAct.getApplicationContext());
+        sender.timestamp = Utils.getTimeStamp();
+        try {
+            sender.token = Utils.hashMac(sender.getParamsString());
+        } catch (SignatureException e) {
+            e.printStackTrace();
+        }
+
+        RequestApi requestApi = new RequestApi();
+        requestApi.getAds(sender, new Callback<GetAdsResponse>() {
+            @Override
+            public void success(GetAdsResponse getAdsResponse, Response response) {
+                if (getAdsResponse != null && 0 == getAdsResponse.code &&
+                        getAdsResponse.vipAdsList != null &&
+                        getAdsResponse.vipAdsList.size() > 0) {
+                    int indexRand = Utils.randInt(0, getAdsResponse.vipAdsList.size());
+                    if (indexRand >= getAdsResponse.vipAdsList.size())
+                        --indexRand;
+                    VipAdsResponse item = getAdsResponse.vipAdsList.get(indexRand);
+                    appAds = item.app;
+                    int index = item.app.languageAdsList.indexOf(new VipAdsResponse.AppAds.LanguageAds(item.app.defaultLanguage));
+                    if (index >= 0) {
+                        languageAds = item.app.languageAdsList.get(index);
+                        DialogAds.this.show();
+                        BitmapUtils.setImageWithUILoader(languageAds.icon, icon, R.mipmap.ic_launcher);
+                        tvHeader.setText(languageAds.name);
+                        tvDes.setText(languageAds.fullDescription);
+                    }
+                }
+            }
+
+            @Override
+            public void failure(RetrofitError error) {
+                Log.e("TAG", error.toString());
+            }
+        });
     }
 
     private void installApp() {

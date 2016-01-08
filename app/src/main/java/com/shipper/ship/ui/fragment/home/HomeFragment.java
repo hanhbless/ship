@@ -74,7 +74,10 @@ public class HomeFragment extends BaseFragment {
                 if (getAdsResponse != null && 0 == getAdsResponse.code &&
                         getAdsResponse.vipAdsList != null &&
                         getAdsResponse.vipAdsList.size() > 0) {
-                    VipAdsResponse item = getAdsResponse.vipAdsList.get(Utils.randInt(0, getAdsResponse.vipAdsList.size()));
+                    int indexRand = Utils.randInt(0, getAdsResponse.vipAdsList.size());
+                    if (indexRand >= getAdsResponse.vipAdsList.size())
+                        --indexRand;
+                    VipAdsResponse item = getAdsResponse.vipAdsList.get(indexRand);
                     VipAdsResponse.AppAds appAds = item.app;
                     int index = item.app.languageAdsList.indexOf(new VipAdsResponse.AppAds.LanguageAds(item.app.defaultLanguage));
                     if (index >= 0) {
